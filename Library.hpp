@@ -45,9 +45,7 @@ class Book {
 class User {
   public:
     User();
-    User(std::string name);
 
-    void setName(std::string name);
     std::string getName(void);
 
     void showList(void);
