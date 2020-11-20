@@ -1,81 +1,53 @@
 //#include "Library.hpp"
-#include <cstring>
-#include <fcntl.h>
-#include <iostream>
-#include <list>
-#include <string>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <unistd.h>
-
+#include "main.hpp"
+#include "User.hpp"
 using namespace std;
 
-void userOp1();
-void userOp2();
-void userOp3();
-void userOp4();
-void userOp5();
+int sel;
+int yearT, monthT, dayT;
 
 int main(void) {
-    int yearT, monthT, dayT;
-    cout << "YEAR : ";
-    cin >> yearT;
-    cout << "MONTH : ";
-    cin >> monthT;
-    cout << "DAY : ";
-    cin >> dayT;
-
-    string userName;
-    cout << "NAME : ";
-    cin >> userName;
-
-    string userPath = "./USER/";
-    userPath = userPath + userName + ".dat";
-    int userfd = open(userPath.c_str(), O_CREAT | O_RDONLY | O_WRONLY, 0644);
-
-    int option;
+    setDay();
     while (1) {
-        cout << "------------------------------------------------" << endl;
-        cout << "DATE : " << yearT << " " << monthT << " " << dayT << endl;
-        cout << "NAME : " << userName << endl;
-        cout << "1) List of Books" << endl;
-        cout << "2) List of Borrowed Books" << endl;
-        cout << "3) Borrow Book" << endl;
-        cout << "4) Extend the Borrowing Period of Book" << endl;
-        cout << "5) Return Book" << endl;
-        cout << "6) Exit" << endl;
-
-        cout << "Choose Option <<";
-        cin >> option;
-
-        switch (option) {
-        case 1:
-            userOp1();
-            break;
-        case 2:
-            userOp2();
-            break;
-        case 3:
-            userOp3();
-            break;
-        case 4:
-            userOp4();
-            break;
-        case 5:
-            userOp5();
-            break;
-        case 6:
-            exit(0);
-        default:
-            cout << "Wrong Input!" << endl;
-        }
+        MainMenu();
     }
-
-    close(userfd);
 }
 
-void userOp1() { cout << "op1" << endl; }
-void userOp2() { cout << "op2" << endl; }
-void userOp3() { cout << "op3" << endl; }
-void userOp4() { cout << "op4" << endl; }
-void userOp5() { cout << "op5" << endl; }
+void setDay() {
+    time_t rTime;
+    struct tm *Currtime;
+
+    rTime = time(NULL);           // Curr time
+    Currtime = localtime(&rTime); // Curr time struct
+
+    yearT = Currtime->tm_year + 1900;
+    monthT = Currtime->tm_mon + 1;
+    dayT = Currtime->tm_mday;
+}
+
+void MainMenu() {
+    pid_t pid = 0;
+    int status = 0;
+
+    pid = fork();
+    if (pid == -1) {
+        perror("fork() error");
+        exit(-1);
+    } else if (pid == 0) {
+        execl("/usr/bin/clear", "clear");
+    } else {
+        wait(&status);
+        cout << "------------------------------------------------" << endl;
+        cout << "1. 사서" << endl;
+        cout << "2. 사용자" << endl;
+        cout << "1(사서) or 2(사용자) 숫자입력 : ";
+        cin >> sel;
+
+        if (sel == 1) {
+        } else if (sel == 2) {
+            UserSel();
+        } else {
+            cout << "error" << endl;
+        }
+    }
+}
