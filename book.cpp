@@ -46,7 +46,7 @@ void clearScreen() {
 
     pid = fork();
     if (pid == 0)
-        execl("/usr/bin/clear", "clear");
+        execl("/usr/bin/clear", "clear", NULL);
     else
         wait(&status);
 }
