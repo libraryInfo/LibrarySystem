@@ -19,6 +19,9 @@ void librarian() {
 
     if (menu == 1) {
         bookList();
+        string pause;
+        cout << "메뉴로 돌아가려면 아무 키나 누르세요 : ";
+        cin >> pause;
     } else if (menu == 2) {
         lendingList();
     } else if (menu == 3) {
@@ -70,9 +73,6 @@ void bookList() {
     }
     closedir(dirp);
 
-    string pause;
-    cout << "메뉴로 돌아가려면 아무 키나 누르세요 : ";
-    cin >> pause;
 }
 
 void lendingList() {
@@ -162,6 +162,9 @@ void delBook() {
     Book book;
     string del;
     string path;
+
+    bookList();
+
     cout << "-----삭제-----" << endl;
     cout << "삭제할 책 이름 : ";
     cin >> title;

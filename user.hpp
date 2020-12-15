@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
+#include <dirent.h>
 #include <fcntl.h>
 #include <iostream>
 #include <list>
@@ -14,7 +15,9 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-void usrMenu();
+using namespace std;
+
+void usrMenu(string inputName);
 void usrMenu1();
 void usrMenu2();
 void usrMenu3();
