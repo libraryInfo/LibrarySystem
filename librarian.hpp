@@ -1,12 +1,15 @@
-#ifndef __USER_HPP__
-#define __USER_HPP__
+#ifndef __LIBRARIAN_HPP__
+#define __LIBRARIAN_HPP__
 
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
+#include <dirent.h>
 #include <fcntl.h>
 #include <iostream>
 #include <list>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <string>
 #include <sys/stat.h>
@@ -14,11 +17,10 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-void usrMenu();
-void usrMenu1();
-void usrMenu2();
-void usrMenu3();
-void usrMenu4();
-void usrMenu5();
+void librarian();
+void bookList();
+void lendingList();
+void addBook();
+void delBook();
 
 #endif
