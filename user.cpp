@@ -6,6 +6,7 @@ using namespace std;
 string usrName;
 int year, month, day;
 int ryear, rmonth, rday;
+int monthofday[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 void usrMenu(string inputName) {
 
@@ -25,8 +26,11 @@ void usrMenu(string inputName) {
     ryear = year;
     rmonth = month;
     rday = day + 7;
-    if (rday > 31) {
-        rday -= 31;
+    if ((ryear % 4 == 0) && ((ryear % 100 != 0) || (ryear % 400 == 0))) {
+        monthofday[1] = 29;
+    }
+    if (rday > monthofday[rmonth - 1]) {
+        rday -= monthofday[rmonth - 1];
         rmonth++;
     }
     if (rmonth > 12) {
@@ -146,7 +150,8 @@ void usrMenu2() {
     int fd, r;
     Book book;
 
-    cout << "-도서 현황-" << endl << endl;
+    cout << "-도서 현황-\t예상반납일:" << ryear << "-" << rmonth << "-" << rday;
+    cout << endl << endl;
     dirp = opendir("./BOOK");
     while ((dirInfo = readdir(dirp)) != NULL) {
         catName = dirInfo->d_name;
@@ -340,8 +345,12 @@ void usrMenu4() {
                 brmonth = book.getRmonth();
                 brday = book.getRday() + 7;
 
-                if (brday > 31) {
-                    brday -= 31;
+                if ((bryear % 4 == 0) &&
+                    ((bryear % 100 != 0) || (bryear % 400 == 0))) {
+                    monthofday[1] = 29;
+                }
+                if (brday > monthofday[brmonth - 1]) {
+                    brday -= monthofday[brmonth - 1];
                     brmonth++;
                 }
                 if (brmonth > 12) {
