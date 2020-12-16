@@ -100,16 +100,30 @@ void usrMenu1() {
 
             catPath = "./BOOK/" + catName;
             dirp2 = opendir(catPath.c_str());
+            vector<string> bname;
             while ((dirInfo2 = readdir(dirp2)) != NULL) {
                 bookName = dirInfo2->d_name;
                 if (bookName.compare(".") != 0 && bookName.compare("..") != 0) {
                     bookPath = catPath + "/" + bookName;
                     fd = open(bookPath.c_str(), O_CREAT | O_RDWR, 0644);
                     r = read(fd, &book, sizeof(Book));
-                    cout << "\t" << book.getName() << endl;
+                    // cout << "\t" << book.getName() << endl;
+                    bname.push_back(book.getName());
                     close(fd);
                 }
             }
+
+            sort(bname.begin(), bname.end());
+            vector<string>::iterator it;
+            vector<string>::iterator nextit;
+            for (it = bname.begin(); it != bname.end(); it++) {
+                nextit = it + 1;
+                if (nextit == bname.end())
+                    cout << "    └ " << *it << endl;
+                else
+                    cout << "    ├ " << *it << endl;
+            }
+
             closedir(dirp2);
             cout << endl;
         }
@@ -142,16 +156,30 @@ void usrMenu2() {
 
             catPath = "./BOOK/" + catName;
             dirp2 = opendir(catPath.c_str());
+            vector<string> bname;
             while ((dirInfo2 = readdir(dirp2)) != NULL) {
                 bookName = dirInfo2->d_name;
                 if (bookName.compare(".") != 0 && bookName.compare("..") != 0) {
                     bookPath = catPath + "/" + bookName;
                     fd = open(bookPath.c_str(), O_CREAT | O_RDWR, 0644);
                     r = read(fd, &book, sizeof(Book));
-                    cout << "\t" << book.getName() << endl;
+                    // cout << "\t" << book.getName() << endl;
+                    bname.push_back(book.getName());
                     close(fd);
                 }
             }
+
+            sort(bname.begin(), bname.end());
+            vector<string>::iterator it;
+            vector<string>::iterator nextit;
+            for (it = bname.begin(); it != bname.end(); it++) {
+                nextit = it + 1;
+                if (nextit == bname.end())
+                    cout << "    └ " << *it << endl;
+                else
+                    cout << "    ├ " << *it << endl;
+            }
+
             closedir(dirp2);
         }
     }
@@ -210,7 +238,7 @@ void usrMenu2() {
 
     pid = fork();
     if (pid == 0)
-        execl("/usr/bin/mv", "mv", borPath.c_str(), des.c_str());
+        execl("/usr/bin/mv", "mv", borPath.c_str(), des.c_str(), NULL);
     else
         wait(&status);
 
@@ -419,7 +447,7 @@ void usrMenu5() {
 
     pid = fork();
     if (pid == 0)
-        execl("/usr/bin/mv", "mv", retPath.c_str(), des.c_str());
+        execl("/usr/bin/mv", "mv", retPath.c_str(), des.c_str(), NULL);
     else
         wait(&status);
 

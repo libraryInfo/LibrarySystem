@@ -1,6 +1,7 @@
 #ifndef __USER_HPP__
 #define __USER_HPP__
 
+#include <algorithm>
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
@@ -14,6 +15,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <vector>
 
 using namespace std;
 
