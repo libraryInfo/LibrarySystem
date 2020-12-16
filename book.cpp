@@ -41,12 +41,14 @@ int Book::getRmonth(void) { return this->rmonth; }
 int Book::getRday(void) { return this->rday; }
 
 void clearScreen() {
+    
     pid_t pid = 0;
     int status = 0;
-
+    
     pid = fork();
     if (pid == 0)
         execl("/usr/bin/clear", "clear", NULL);
     else
         wait(&status);
+    
 }
