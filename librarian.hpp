@@ -1,6 +1,7 @@
 #ifndef __LIBRARIAN_HPP__
 #define __LIBRARIAN_HPP__
 
+#include <algorithm>
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
@@ -16,6 +17,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <vector>
 
 void librarian();
 void bookList();

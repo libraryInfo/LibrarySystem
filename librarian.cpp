@@ -57,22 +57,34 @@ void bookList() {
             cout << category << endl;
             categoryLoc = "./BOOK/" + category;
             dirp2 = opendir(categoryLoc.c_str());
+            vector<string> bname;
             while ((dirInfo2 = readdir(dirp2)) != NULL) {
                 booklist = dirInfo2->d_name;
                 if (booklist.compare(".") != 0 && booklist.compare("..") != 0) {
                     bookLoc = categoryLoc + "/" + booklist;
                     fd = open(bookLoc.c_str(), O_CREAT | O_RDWR, 0644);
                     r = read(fd, &book, sizeof(Book));
-                    cout << "    ㄴ\t" << book.getName() << endl;
+                    bname.push_back(book.getName());
                     close(fd);
                 }
             }
+
+            sort(bname.begin(), bname.end());
+            vector<string>::iterator it;
+            vector<string>::iterator nextit;
+            for (it = bname.begin(); it != bname.end(); it++) {
+                nextit = it + 1;
+                if (nextit == bname.end())
+                    cout << "   └ " << *it << endl;
+                else
+                    cout << "   ├ " << *it << endl;
+            }
+
             closedir(dirp2);
             cout << "-----------------" << endl;
         }
     }
     closedir(dirp);
-
 }
 
 void lendingList() {

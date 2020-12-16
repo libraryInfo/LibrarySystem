@@ -107,7 +107,6 @@ void usrMenu1() {
                     bookPath = catPath + "/" + bookName;
                     fd = open(bookPath.c_str(), O_CREAT | O_RDWR, 0644);
                     r = read(fd, &book, sizeof(Book));
-                    // cout << "\t" << book.getName() << endl;
                     bname.push_back(book.getName());
                     close(fd);
                 }
@@ -163,7 +162,6 @@ void usrMenu2() {
                     bookPath = catPath + "/" + bookName;
                     fd = open(bookPath.c_str(), O_CREAT | O_RDWR, 0644);
                     r = read(fd, &book, sizeof(Book));
-                    // cout << "\t" << book.getName() << endl;
                     bname.push_back(book.getName());
                     close(fd);
                 }
