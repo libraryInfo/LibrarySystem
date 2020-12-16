@@ -12,7 +12,7 @@ int main() {
     cout << "LIBRARY MANAGEMENT PROGRAM" << endl;
     cout << "--------------------------" << endl;
     cout << "1. 사서" << endl;
-    cout << "2. 사용자" << endl;
+    cout << "2. 사용자" << endl << endl ;
     cout << "이용 서비스를 골라주세요 : ";
     cin >> mode;
 
