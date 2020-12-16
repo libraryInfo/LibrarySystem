@@ -8,7 +8,7 @@ void librarian() {
     clearScreen();
 
     int menu;
-    cout << "----------" << endl << endl ;
+    cout << "-----사서-----" << endl << endl ;
     cout << "(1) 도서 현황" << endl;
     cout << "(2) 대여 명단" << endl;
     cout << "(3) 도서 추가" << endl;
