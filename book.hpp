@@ -48,6 +48,7 @@ class Book {
     int rmonth;
     int rday;
 };
+
 void clearScreen();
 
 #endif
