@@ -8,31 +8,27 @@ int main() {
 
     clearScreen();
 
-    int sel;
-    cout << "도서관 정보 관리 프로그램입니다." << endl << endl;
-    cout << "신분을 입력하세요." << endl;
-    cout << "(1) 사서" << endl;
-    cout << "(2) 사용자" << endl;
-    cout << "메뉴 입력 << ";
-    cin >> sel;
+    int mode;
+    cout << "LIBRARY MANAGEMENT PROGRAM" << endl;
+    cout << "---------------------------" << endl;
+    cout << "1. 사서" << endl;
+    cout << "2. 사용자" << endl;
+    cout << "이용 서비스를 골라주세요 : ";
+    cin >> mode;
 
-    switch (sel) {
-    case 1:
-        while (1)
-            libMenu();
+    while (1) {
+        if (mode == 1) {
+            librarian();
+        } else if (mode == 2) {
+            string inputName;
+            cout << "이름을 입력하세요 << ";
+            cin >> inputName;
 
-        break;
+            while (1)
+                usrMenu(inputName);
 
-    case 2:
-        string inputName;
-        cout << "이름을 입력하세요 << ";
-        cin >> inputName;
-
-        while (1)
-            usrMenu(inputName);
-
-        break;
+            break;
+        }
     }
-
     return 0;
 }
