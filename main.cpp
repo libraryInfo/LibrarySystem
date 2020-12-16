@@ -21,7 +21,7 @@ int main() {
             librarian();
         } else if (mode == 2) {
             string inputName;
-            cout << "이름을 입력하세요 << ";
+            cout << endl << "이름을 입력하세요 << ";
             cin >> inputName;
 
             while (1)
