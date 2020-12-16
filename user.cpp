@@ -95,12 +95,13 @@ void usrMenu1() {
     int fd, r;
     Book book;
 
-    cout << "-도서 현황-" << endl << endl;
     dirp = opendir("./BOOK");
+    cout << "카테고리   책 이름" << endl;
+    cout << "-----------------" << endl;
     while ((dirInfo = readdir(dirp)) != NULL) {
         catName = dirInfo->d_name;
         if (catName.compare(".") != 0 && catName.compare("..") != 0) {
-            cout << "#" << catName << endl;
+            cout << catName << endl;
 
             catPath = "./BOOK/" + catName;
             dirp2 = opendir(catPath.c_str());
@@ -128,7 +129,7 @@ void usrMenu1() {
             }
 
             closedir(dirp2);
-            cout << endl;
+            cout << "-----------------" << endl;
         }
     }
     closedir(dirp);
