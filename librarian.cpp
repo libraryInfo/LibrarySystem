@@ -13,7 +13,7 @@ void librarian() {
     cout << "(2) 대여 명단" << endl;
     cout << "(3) 도서 추가" << endl;
     cout << "(4) 도서 삭제" << endl;
-    cout << "(5) 종료" << endl;
+    cout << "(5) 종료" << endl << endl;
     cout << "메뉴 입력 << ";
     cin >> menu;
 
@@ -177,7 +177,7 @@ void delBook() {
 
     bookList();
 
-    cout << "-----삭제-----" << endl << endl;
+    cout << endl << "-----삭제-----" << endl;
     cout << "삭제할 책 이름 : ";
     cin >> title;
     cout << "삭제할 책의 카테고리 : ";
