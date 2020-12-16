@@ -8,12 +8,12 @@ void librarian() {
     clearScreen();
 
     int menu;
-    cout << "-----목록-----" << endl;
-    cout << "1. 도서 현황" << endl;
-    cout << "2. 대여 명단" << endl;
-    cout << "3. 도서 추가" << endl;
-    cout << "4. 도서 삭제" << endl;
-    cout << "5. 종료" << endl;
+    cout << "-----목록-----" << endl << endl ;
+    cout << "(1) 도서 현황" << endl;
+    cout << "(2) 대여 명단" << endl;
+    cout << "(3) 도서 추가" << endl;
+    cout << "(4) 도서 삭제" << endl;
+    cout << "(5) 종료" << endl;
     cout << "메뉴 입력 << ";
     cin >> menu;
 
@@ -99,7 +99,7 @@ void lendingList() {
     string booklist, bookLoc;
     int fd, r;
     Book book;
-    cout << "-----대여 명단-----" << endl;
+    cout << "-----대여 명단-----" << endl << endl;
     dirp = opendir("./USER");
     while ((dirInfo = readdir(dirp)) != NULL) {
         name = dirInfo->d_name;
@@ -136,7 +136,7 @@ void addBook() {
     clearScreen();
 
     string name, category, path;
-    cout << "-----도서 추가-----" << endl;
+    cout << "-----도서 추가-----" << endl << endl;
     cout << "책 이름 : ";
     cin >> name;
     cout << "책 카테고리 : ";
@@ -177,7 +177,7 @@ void delBook() {
 
     bookList();
 
-    cout << "-----삭제-----" << endl;
+    cout << "-----삭제-----" << endl << endl;
     cout << "삭제할 책 이름 : ";
     cin >> title;
     cout << "삭제할 책의 카테고리 : ";
