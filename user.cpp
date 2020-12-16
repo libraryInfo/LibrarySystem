@@ -55,7 +55,7 @@ void usrMenu(string inputName) {
     cout << "(3) 대여 도서 현황" << endl;
     cout << "(4) 대여 기간 연장" << endl;
     cout << "(5) 도서 반납" << endl;
-    cout << "(6) 종료" << endl;
+    cout << "(6) 종료" << endl << endl;
     cout << "메뉴 입력 << ";
     cin >> usrSel;
 
