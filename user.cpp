@@ -46,7 +46,7 @@ void usrMenu(string inputName) {
         closedir(temp);
 
     int usrSel;
-    cout << "-사용자-" << endl << endl;
+    cout << "-----사용자-----" << endl << endl;
     cout << "이름 : " << usrName << " | 날짜 : " << year << "." << month << "."
          << day << endl
          << endl;
@@ -151,7 +151,7 @@ void usrMenu2() {
     int fd, r;
     Book book;
 
-    cout << "-도서 현황-\t예상반납일:" << ryear << "-" << rmonth << "-" << rday;
+    cout << "-----도서 현황-----\t예상반납일:" << ryear << "-" << rmonth << "-" << rday;
     cout << endl << endl;
     dirp = opendir("./BOOK");
     while ((dirInfo = readdir(dirp)) != NULL) {
@@ -265,7 +265,7 @@ void usrMenu3() {
     list<Book> bookList;
     list<Book>::iterator iter;
 
-    cout << "-대여한 도서 목록-" << endl << endl;
+    cout << "-----대여한 도서 목록-----" << endl << endl;
     dirp = opendir(usrPath.c_str());
     while ((dirInfo = readdir(dirp)) != NULL) {
         bookName = dirInfo->d_name;
@@ -306,7 +306,7 @@ void usrMenu4() {
     list<Book> bookList;
     list<Book>::iterator iter;
 
-    cout << "-대여한 도서 목록-" << endl << endl;
+    cout << "-----대여한 도서 목록-----" << endl << endl;
     dirp = opendir(usrPath.c_str());
     while ((dirInfo = readdir(dirp)) != NULL) {
         bookName = dirInfo->d_name;
@@ -395,7 +395,7 @@ void usrMenu5() {
     list<Book> bookList;
     list<Book>::iterator iter;
 
-    cout << "-대여한 도서 목록-" << endl << endl;
+    cout << "-----대여한 도서 목록-----" << endl << endl;
     dirp = opendir(usrPath.c_str());
     while ((dirInfo = readdir(dirp)) != NULL) {
         bookName = dirInfo->d_name;
